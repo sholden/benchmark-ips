@@ -109,27 +109,26 @@ class TestReport < Minitest::Test
     assert_empty err
   end
 
-  # currently, x.quiet always returns false (though it is working)
-  
-  # def test_quiet_true_config
-  #   Benchmark.ips(:quiet => true) do |x|
-  #     assert x.quiet
-  #   end
-  # end
+  def test_quiet_true_config
+    Benchmark.ips(:quiet => true) do |x|
+      assert x.quiet
+    end
+  end
 
-  # def test_quiet_true_by_accsr
-  #   Benchmark.ips do |x|
-  #     x.quiet = true
-  #     assert x.quiet
-  #   end
-  # end
+  def test_quiet_true_by_accsr
+    Benchmark.ips do |x|
+      x.quiet = true
+      assert x.quiet
+    end
+  end
 
-  # def test_quiet_true_change
-  #   Benchmark.ips(:quiet => false) do |x|
-  #     x.quiet = true
-  #     assert x.quiet
-  #   end
-  # end
+  def test_quiet_true_change
+    Benchmark.ips(:quiet => false) do |x|
+      x.quiet = true
+      assert x.quiet
+    end
+  end
+
   def test_quiet_true
     $stdout = @old_stdout
 
